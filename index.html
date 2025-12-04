@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ExamPlanner Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom scrollbar for large grids */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #888; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+      }
+      /* Ensure sticky columns have a background to hide scrolled content */
+      .sticky-col {
+        background-color: white;
+        z-index: 10;
+      }
+
+      /* Print styles */
+      @media print {
+        @page {
+          size: landscape;
+          margin: 5mm;
+        }
+        body {
+          background: white;
+        }
+        /* Hide sidebar, header, and other non-printable elements */
+        .no-print {
+          display: none !important;
+        }
+        /* Force calendar to be visible and expanded */
+        .print-container {
+          width: 100% !important;
+          height: auto !important;
+          overflow: visible !important;
+          display: block !important;
+        }
+        /* Adjust calendar internal styling for print */
+        .print-container > div {
+          width: 100% !important;
+          overflow: visible !important;
+        }
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.6.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-50 text-slate-900 font-sans antialiased">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
